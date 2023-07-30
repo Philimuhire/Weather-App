@@ -19,3 +19,21 @@ function processWeatherData(data) {
     };
   }
   
+  const searchForm = document.getElementById('searchForm');
+  const locationInput = document.getElementById('locationInput');
+  const weatherInfo = document.getElementById('weatherInfo');
+  
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const location = locationInput.value;
+    fetchWeatherData(location);
+  });
+  
+  function displayWeatherInfo(weatherData) {
+    const html = `
+      <h2>${weatherData.location}</h2>
+      <p>Temperature: ${weatherData.temperature} °C</p>
+    `;
+    weatherInfo.innerHTML = html;
+  }
+  
