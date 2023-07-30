@@ -11,3 +11,11 @@ async function fetchWeatherData(location) {
     console.error('Error fetching weather data:', error);
   }
 }
+
+function processWeatherData(data) {
+    return {
+      location: data.location.name,
+      temperature: data.current.temp_c // Change to temp_f if you want Fahrenheit
+    };
+  }
+  
